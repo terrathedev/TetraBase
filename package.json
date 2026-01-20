@@ -1,0 +1,34 @@
+{
+  "name": "tetrabase",
+  "version": "1.0.0",
+  "description": "an experiment with 4 types of databases with a frontend webpage and backend",
+  "homepage": "https://github.com/terrathedev/TetraBase#readme",
+  "bugs": {
+    "url": "https://github.com/terrathedev/TetraBase/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terrathedev/TetraBase.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "bin": "app.js",
+"scripts": {
+    "dev": "bun --hot app.js",
+    "test": "bun test",
+    "build:all": "bun run build:linux && bun run build:alpine && bun run build:win && bun run build:mac",
+    "build:linux": "bun build ./app.js --compile --target=bun-linux-x64 --outfile ./dist/tetrabase-linux",
+    "build:alpine": "bun build ./app.js --compile --target=bun-linux-x64-musl --outfile ./dist/tetrabase-alpine",
+    "build:win": "bun build ./app.js --compile --target=bun-windows-x64 --outfile ./dist/tetrabase-win.exe",
+    "build:mac": "bun build ./app.js --compile --target=bun-darwin-arm64 --outfile ./dist/tetrabase-mac",
+    "docker:build": "docker build -t tetrabase:alpine .",
+    "k3s:deploy": "docker save tetrabase:alpine | sudo k3s ctr images import - && kubectl apply -f k8s/deployment.yaml"
+  },
+  "dependencies": {
+    "dockerode": "^4.0.9",
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  }
+}

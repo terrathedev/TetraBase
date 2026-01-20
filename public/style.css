@@ -1,0 +1,119 @@
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --accent: #ec4899;
+    --accent-glow: #8b5cf6;
+    --text: #f1f5f9;
+    --text-dim: #94a3b8;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    background: linear-gradient(to right, #ff6760, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: #f9a8d4; /* Pink 300 */
+}
+
+.status-title { color: #c4b5fd; } /* Violet 300 */
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+select, input {
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+button {
+    background: linear-gradient(to right, #ec4899, #7c3aed);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover { transform: scale(1.02); }
+button:active { transform: scale(0.98); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.pull-status {
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--text-dim);
+    margin-top: 0.5rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+.container-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.8);
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid #334155;
+    margin-bottom: 0.75rem;
+}
+
+.name { font-family: monospace; font-size: 0.875rem; }
+.status { font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
+.running { color: #4ade80; }
+.stopped { color: #f87171; }
+
+.stop-btn {
+    background: rgba(127, 29, 29, 0.3);
+    color: #f87171;
+    border: 1px solid rgba(127, 29, 29, 0.5);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+}
+.stop-btn:hover { background: rgba(127, 29, 29, 0.5); }
+
+.hidden { display: none; }
